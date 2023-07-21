@@ -45,6 +45,7 @@ function game(){
         playerSelection = prompt("Please type rock, paper, or scissors:");
         roundResult = playRound(playerSelection, getComputerChoice());
 
+        console.group('Round ' + i);
         if(roundResult === 0){
             console.log('Round tie');
         } else if(roundResult > 0){
@@ -56,6 +57,7 @@ function game(){
         }
 
         console.log(`Player score: ${playerScore}\nComputer score: ${computerScore}`);
+        console.groupEnd();
     }
 
     if(playerScore === computerScore){
