@@ -13,35 +13,57 @@ function playRound(playerSelection, computerSelection){
     playerSelection = playerSelection.toUpperCase();
 
     if(playerSelection === computerSelection){
-        return 'Tie!';
+        return 0;
     }
 
     if(playerSelection === 'ROCK'){
         if(computerSelection === 'PAPER'){
-            return 'You lose! Paper beats Rock';
+            return -1;
         } else if(computerSelection === 'SCISSORS'){
-            return 'You win! Rock beats Scissors';
+            return 1;
         }
     } else if(playerSelection === 'PAPER'){
         if(computerSelection === 'ROCK'){
-            return 'You win! Paper beats Rock';
+            return 1;
         } else if(computerSelection === 'SCISSORS'){
-            return 'You lose! Scissors beats paper';
+            return -1;
         }
     } else if(playerSelection === 'SCISSORS'){
         if(computerSelection === 'ROCK'){
-            return 'You lose! Rock beats Scissors';
+            return -1;
         } else if(computerSelection === 'PAPER'){
-            return 'You win! Scissors beats Paper';
+            return 1;
         }
     }
 }
 
 function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+
     for(let i = 1; i <= 5; i++){
         playerSelection = prompt("Please type rock, paper, or scissors:");
+        roundResult = playRound(playerSelection, getComputerChoice());
 
-        console.log(playRound(playerSelection, getComputerChoice()));
+        if(roundResult === 0){
+            console.log('Round tie');
+        } else if(roundResult > 0){
+            console.log('Player wins the round');
+            playerScore++;
+        } else{
+            console.log('Computer wins the round');
+            computerScore++;
+        }
+
+        console.log(`Player score: ${playerScore}\nComputer score: ${computerScore}`);
+    }
+
+    if(playerScore === computerScore){
+        console.log('Game tie!');
+    } else if(playerScore > computerScore){
+        console.log('Player wins the game!');
+    } else{
+        console.log('Computer wins the game!');
     }
 }
 
