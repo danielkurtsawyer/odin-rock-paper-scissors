@@ -1,15 +1,20 @@
 function getComputerChoice() {
     let rand  = Math.floor(Math.random() * 3);
     if(rand === 0){
-        return 'ROCK';
+        return 'rock';
     } else if(rand === 1){
-        return 'PAPER';
+        return 'paper';
     }else {
-        return 'SCISSORS';
+        return 'scissors';
     }
 }
 
-function playRound(playerSelection, computerSelection){
+function playRound(e){
+    computerSelection = getComputerChoice();
+    playerSelection = e.target.classList.value;
+
+    
+    /*
     playerSelection = playerSelection.toUpperCase();
 
     if(playerSelection === computerSelection){
@@ -35,6 +40,7 @@ function playRound(playerSelection, computerSelection){
             return 1;
         }
     }
+    */
 }
 
 function game(){
@@ -69,7 +75,6 @@ function game(){
     }
 }
 
-game();
+const buttons = document.querySelectorAll('button');
 
-
-
+buttons.forEach(btn => btn.addEventListener('click', playRound));
