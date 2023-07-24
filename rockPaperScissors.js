@@ -54,18 +54,15 @@ function playRound(e){
         }
     }
 
-    console.log(playerScore.toString());
-    console.log(computerScore.toString());
-
     playerDiv.textContent = playerScore.toString();
     computerDiv.textContent = computerScore.toString();
 
     if(playerScore === 5){
-        message.textContent = "Player Wins!";
+        message.textContent = 'Player Wins!';
         resetScore();
     }
     if(computerScore === 5){
-        message.textContent = "Computer Wins!";
+        message.textContent = 'Computer Wins!';
         resetScore();
     }
 }
