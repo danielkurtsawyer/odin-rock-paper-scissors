@@ -60,34 +60,24 @@ function playRound(e){
     playerDiv.textContent = playerScore.toString();
     computerDiv.textContent = computerScore.toString();
 
-    /*
-    playerSelection = playerSelection.toUpperCase();
-
-    if(playerSelection === computerSelection){
-        return 0;
+    if(playerScore === 5){
+        message.textContent = "Player Wins!";
+        resetScore();
     }
-
-    if(playerSelection === 'ROCK'){
-        if(computerSelection === 'PAPER'){
-            return -1;
-        } else if(computerSelection === 'SCISSORS'){
-            return 1;
-        }
-    } else if(playerSelection === 'PAPER'){
-        if(computerSelection === 'ROCK'){
-            return 1;
-        } else if(computerSelection === 'SCISSORS'){
-            return -1;
-        }
-    } else if(playerSelection === 'SCISSORS'){
-        if(computerSelection === 'ROCK'){
-            return -1;
-        } else if(computerSelection === 'PAPER'){
-            return 1;
-        }
+    if(computerScore === 5){
+        message.textContent = "Computer Wins!";
+        resetScore();
     }
-    */
 }
+
+function resetScore(){
+    playerScore = 0;
+    computerScore = 0;
+    playerDiv.textContent = playerScore.toString();
+    computerDiv.textContent = computerScore.toString();
+}
+
+
 
 function game(){
     let playerScore = 0;
