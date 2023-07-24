@@ -76,37 +76,3 @@ function resetScore(){
     playerDiv.textContent = playerScore.toString();
     computerDiv.textContent = computerScore.toString();
 }
-
-
-
-function game(){
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for(let i = 1; i <= 5; i++){
-        playerSelection = prompt("Please type rock, paper, or scissors:");
-        roundResult = playRound(playerSelection, getComputerChoice());
-
-        console.group('Round ' + i);
-        if(roundResult === 0){
-            console.log('Round tie');
-        } else if(roundResult > 0){
-            console.log('Player wins the round');
-            playerScore++;
-        } else{
-            console.log('Computer wins the round');
-            computerScore++;
-        }
-
-        console.log(`Player score: ${playerScore}\nComputer score: ${computerScore}`);
-        console.groupEnd();
-    }
-
-    if(playerScore === computerScore){
-        console.log('Game tie!');
-    } else if(playerScore > computerScore){
-        console.log('Player wins the game!');
-    } else{
-        console.log('Computer wins the game!');
-    }
-}
